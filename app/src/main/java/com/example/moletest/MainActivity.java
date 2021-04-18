@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
         //Moments M =Imgproc.moments(img_dilate);
         //Point centroid = new Point(Math.floor(M.m10 / (M.m00 + 1e-5)), Math.floor(M.m01 / (M.m00 + 1e-5)));//add 1e-5 to avoid division by zero
 
-        Mat img_fill = new Mat();
-        Imgproc.floodFill(img_dilate, img_fill, centroid, new Scalar(0));
+        //Mat img_fill = new Mat();
+        //Imgproc.floodFill(img_dilate, img_fill, centroid, new Scalar(0));
         //floodFill​(Mat image, Mat mask, Point seedPoint, Scalar newVal)
 
         Mat img_erode = new Mat();
