@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MoleTest</string>
+    <string name="fullname">fullname</string>
 </resources>
