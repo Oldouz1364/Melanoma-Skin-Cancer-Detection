@@ -77,8 +77,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.705" />
 
-    <TextView
-        android:id="@+id/textView5"
+    <Button
+        android:id="@+id/loginbtn"
         android:layout_width="212dp"
         android:layout_height="56dp"
         android:text="Already Register? Login here"

@@ -1,11 +1,16 @@
 package com.example.moletest;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.util.Log;
 import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.opencv.core.CvType;
 import org.opencv.core.Mat;
@@ -38,7 +43,14 @@ public class MainActivity extends AppCompatActivity {
         OpenCVLoader.initDebug();
     }
 
-    public void displayToast(View v){
+    public void logout (View view) {
+        FirebaseAuth.getInstance().signOut();//logout
+        startActivity(new Intent(getApplicationContext(),Login.class));
+        finish();
+    }
+
+
+    public void ImageProcessing (View v){
 
         Mat img = null;
 
@@ -180,8 +192,8 @@ public class MainActivity extends AppCompatActivity {
         img.copyTo(masked_img, img_erode2);
 
         // Display the image
-        Bitmap img_bitmap = Bitmap.createBitmap(img_fill.cols(), img_fill.rows(),Bitmap.Config.ARGB_8888);
-        Utils.matToBitmap(img_fill,img_bitmap);
+        Bitmap img_bitmap = Bitmap.createBitmap(masked_img.cols(), masked_img.rows(),Bitmap.Config.ARGB_8888);
+        Utils.matToBitmap(masked_img,img_bitmap);
 
 
         ImageView imageView = findViewById(R.id.img);
@@ -190,6 +202,7 @@ public class MainActivity extends AppCompatActivity {
         // Calculation of features
         // Lesion border features
 
+        /*
         // Compactness
         // First finding the contour
         Mat hierarchy = new Mat();
@@ -214,6 +227,8 @@ public class MainActivity extends AppCompatActivity {
         //Moments M =Imgproc.moments(img_erode2);
         //Point centroid = new Point(M.m10 / (M.m00 + 1e-5), M.m01 / (M.m00 + 1e-5));//add 1e-5 to avoid division by zero
         //for (int i = 0; i < 5; i++)
+
+         */
 
     }
 }

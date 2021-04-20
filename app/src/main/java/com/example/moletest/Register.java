@@ -24,7 +24,7 @@ public class Register extends AppCompatActivity {
     TextView mLoginBtn;
     //\\  still need to do it
     FirebaseAuth fAuth;
-    ProgressBar progressBar;
+    //ProgressBar progressBar;
 
 
     //what I follow -> https://www.youtube.com/watch?v=TwHmrZxiPA8
@@ -39,7 +39,7 @@ public class Register extends AppCompatActivity {
         mRegisterBtn = findViewById(R.id.button);
         mLoginBtn = findViewById(R.id.loginbtn);
         fAuth = FirebaseAuth.getInstance(); //- important part - what we are doins is to get the instanc efrom firebase database
-        progressBar = findViewById(R.id.progressBar);
+        //progressBar = findViewById(R.id.progressBar);
 
         if (fAuth.getCurrentUser() != null) {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
@@ -66,22 +66,29 @@ public class Register extends AppCompatActivity {
                     mPassword.setError("password should be higher than 6 numbers");
                     return;
                 }
-                progressBar.setVisibility(View.VISIBLE);
+                //progressBar.setVisibility(View.VISIBLE);
 
 
-                //registwer the user firebase
+                //register the user firebase
                 fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(Register.this, "User created", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), MainActivity.class));
-
+// go back to login ??
                         } else {
                             Toast.makeText(Register.this, "Error " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
+            }
+        });
+
+        mLoginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),Login.class));
             }
         });
     }
