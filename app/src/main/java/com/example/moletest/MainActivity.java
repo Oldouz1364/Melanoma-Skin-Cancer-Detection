@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,6 +29,7 @@ import org.opencv.imgproc.Moments;
 import java.lang.Math;
 
 import java.io.IOException;
+import java.util.AbstractSequentialList;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -35,6 +37,7 @@ import java.util.Vector;
 
 
 public class MainActivity extends AppCompatActivity {
+    private static final String LOG_TAG = "Main Activity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -200,35 +203,81 @@ public class MainActivity extends AppCompatActivity {
         imageView.setImageBitmap(img_bitmap);
  
         // Calculation of features
-        // Lesion border features
+        if (img_erode2 != null) {
 
-        /*
-        // Compactness
-        // First finding the contour
-        Mat hierarchy = new Mat();
-        java.util.List<MatOfPoint> contour = new ArrayList<MatOfPoint>();
-        Imgproc.findContours(img_erode2, contour,hierarchy,Imgproc.RETR_LIST,Imgproc.CHAIN_APPROX_NONE);
-        // Second calculating the area of the contour
-        double Area = Imgproc.contourArea(contour.get(0));
-        // Third calculating the perimeter of the contour
-        MatOfPoint2f  new_contour = new MatOfPoint2f(contour.get(0).toArray() );// New variable
-        double Perimeter = Imgproc.arcLength(new_contour, true);
-        double compactness = 1-(4*Math.PI*Area)/Math.pow(Perimeter, 2);
+            // Lesion border features
 
-        // Solidity
-        MatOfInt hull = new MatOfInt();
-        Imgproc.convexHull(contour.get(0),hull);
-        double hull_area = Imgproc.contourArea(hull);
-        double solidity = Area/hull_area;
 
-        //Variance of distances from border points to centroid of lesion
-        // Calculation of centroid
-        // calculate moments of binary image
-        //Moments M =Imgproc.moments(img_erode2);
-        //Point centroid = new Point(M.m10 / (M.m00 + 1e-5), M.m01 / (M.m00 + 1e-5));//add 1e-5 to avoid division by zero
-        //for (int i = 0; i < 5; i++)
+            // Compactness
+            // First finding the contour
+            Mat hierarchy = new Mat();
+            java.util.List<MatOfPoint> contour = new ArrayList<MatOfPoint>();
+            Imgproc.findContours(img_erode2, contour, hierarchy, Imgproc.RETR_LIST, Imgproc.CHAIN_APPROX_NONE);
+            // Second calculating the area of the contour
+            double Area = Imgproc.contourArea(contour.get(0));
+            // Third calculating the perimeter of the contour
+            MatOfPoint2f new_contour = new MatOfPoint2f(contour.get(0).toArray());// New variable
+            double Perimeter = Imgproc.arcLength(new_contour, true);
+            double compactness = 1 - (4 * Math.PI * Area) / Math.pow(Perimeter, 2);
+            //String str_compactness = compactness + "";
 
-         */
+            // Solidity
+            MatOfInt hull = new MatOfInt();
+            Imgproc.convexHull(contour.get(0), hull); // hull is of type MatOf Int
+            // From MatOfInt to MatOfPoint
+            List<Point> hullPointList = new ArrayList<Point>();
+            MatOfPoint hullPointMat = new MatOfPoint();
+            List<MatOfPoint> hullPoints = new ArrayList<MatOfPoint>();
+            for (int j = 0; j < hull.toList().size(); j++) {
+                hullPointList.add(contour.get(0).toList().get(hull.toList().get(j)));
+            }
 
+            hullPointMat.fromList(hullPointList);
+            hullPoints.add(hullPointMat);
+
+            // Draw contours + hull results
+            int row_size = img_erode2.rows();
+            int column_size = img_erode2.cols();
+            Mat drawing = new Mat(row_size, column_size, CvType.CV_8UC1, new Scalar(0));
+            Scalar color = new Scalar(0, 255, 0);
+            Imgproc.drawContours(drawing, hullPoints, -1, color);
+            double hull_area = Imgproc.contourArea(hullPointMat);
+            double solidity = Area / hull_area;
+            //String str_solidity = solidity + "";
+
+
+
+            //Variance of distances from border points to centroid of lesion
+            // Calculation of centroid
+
+            Moments M = Imgproc.moments(img_erode2); // calculate moments of binary image
+            Point centroid = new Point(M.m10 / (M.m00 + 1e-5), M.m01 / (M.m00 + 1e-5));//add 1e-5 to avoid division by zero
+            List<Double> distances = new ArrayList<Double>();
+            for (int i = 0; i < contour.get(0).rows(); i++) {
+                distances.add(Math.sqrt(Math.pow((contour.get(0).get(i, 0)[0] - centroid.getX()),2) + Math.pow((contour.get(0).get(i, 0)[1] - centroid.getY()),2 )));
+            }
+            // Calculation of the variance of distances
+            int size_distances = distances.size();
+
+            double sum = 0.0;
+            for(double d : distances){
+                    sum += d;
+            }
+            double mean_distances = sum/size_distances;
+
+            double temp = 0;
+            for (double d : distances){
+                    temp += (d - mean_distances) * (d - mean_distances);
+            }
+            double var_distances = temp / (size_distances - 1);
+            String str_var_distances = var_distances + "";
+
+
+
+            TextView textView = findViewById(R.id.Feature);
+            textView.setText(str_var_distances);
+
+
+        }
     }
 }

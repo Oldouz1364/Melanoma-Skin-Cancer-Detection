@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonNext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="104dp"
@@ -37,6 +37,16 @@
         android:text="Log Out"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="16dp" />
+
+    <TextView
+        android:id="@+id/Feature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Feature"
+        app:layout_constraintBottom_toTopOf="@+id/buttonNext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
