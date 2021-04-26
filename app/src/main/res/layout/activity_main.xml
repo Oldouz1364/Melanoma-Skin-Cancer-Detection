@@ -10,20 +10,22 @@
         android:id="@+id/buttonNext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="104dp"
+        android:layout_marginBottom="160dp"
         android:onClick="ImageProcessing"
         android:text="Next step"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        tools:layout_editor_absoluteX="16dp" />
 
     <ImageView
         android:id="@+id/img"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="414dp"
+        android:layout_height="328dp"
+        android:layout_marginTop="16dp"
         android:adjustViewBounds="true"
         android:src="@drawable/a"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints" />
@@ -40,13 +42,16 @@
 
     <TextView
         android:id="@+id/Feature"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="104dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
         android:text="Feature"
-        app:layout_constraintBottom_toTopOf="@+id/buttonNext"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLogOut"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonNext"
+        app:layout_constraintVertical_bias="0.17" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
