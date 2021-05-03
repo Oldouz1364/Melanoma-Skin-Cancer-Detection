@@ -1032,7 +1032,7 @@ public class Imgproc {
     }
 
     //javadoc: Canny(image, edges, threshold1, threshold2)
-    public static void Canny(Mat image, Mat edges, double threshold1, double threshold2)
+    public static void Canny(Mat image, Mat edges, double threshold1, double threshold2, int i)
     {
         
         Canny_3(image.nativeObj, edges.nativeObj, threshold1, threshold2);

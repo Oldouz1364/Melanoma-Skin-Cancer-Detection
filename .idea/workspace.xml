@@ -6,6 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="size" />
     <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
@@ -28,20 +29,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c06de094-2898-4567-834c-178b7f65d979" name="Default Changelist" comment="3 features">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+    <list default="true" id="c06de094-2898-4567-834c-178b7f65d979" name="Default Changelist" comment="Color features">
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/MoleTest.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/MoleTest.app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/moletest/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/moletest/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/openCVLibrary320/build/intermediates/javac/debug/classes/org/opencv/android/AsyncServiceHelper$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/openCVLibrary320/build/intermediates/javac/debug/classes/org/opencv/android/AsyncServiceHelper$3$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/moletest/SVMClassifier.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary320/build/intermediates/compile_library_classes_jar/debug/classes.jar" beforeDir="false" afterPath="$PROJECT_DIR$/openCVLibrary320/build/intermediates/compile_library_classes_jar/debug/classes.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary320/build/intermediates/javac/debug/classes/org/opencv/imgproc/Imgproc.class" beforeDir="false" afterPath="$PROJECT_DIR$/openCVLibrary320/build/intermediates/javac/debug/classes/org/opencv/imgproc/Imgproc.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary320/build/intermediates/runtime_library_classes_jar/debug/classes.jar" beforeDir="false" afterPath="$PROJECT_DIR$/openCVLibrary320/build/intermediates/runtime_library_classes_jar/debug/classes.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary320/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/openCVLibrary320/build/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openCVLibrary320/src/main/java/org/opencv/imgproc/Imgproc.java" beforeDir="false" afterPath="$PROJECT_DIR$/openCVLibrary320/src/main/java/org/opencv/imgproc/Imgproc.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,8 +79,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="android-custom-viewC:/Users/helov/AppData/Local/Android/Sdk/sources/android-30/android/view/View.java_SELECTED" value="View" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Firebaseauthentication" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../melanoma-detection-master" />
     <property name="multi-representation-previewC:/Users/helov/AppData/Local/Android/Sdk/sources/android-30/android/view/View.java_selected" value="Custom views" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\helov\Documents\Master\Personal_portable_health_technologies\7_week_projects\MoleTest\app\src\main\java\libsvm" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
@@ -171,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619073802031</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Color features">
+      <created>1619435528328</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1619435528328</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,13 +204,22 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge" />
     <MESSAGE value="3 features" />
-    <option name="LAST_COMMIT_MESSAGE" value="3 features" />
+    <MESSAGE value="Color features" />
+    <option name="LAST_COMMIT_MESSAGE" value="Color features" />
   </component>
   <component name="WindowStateProjectService">
     <state x="446" y="47" key="#com.intellij.ide.util.MemberChooser" timestamp="1618906687878">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="446" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1280.680@0.0.1280.680" timestamp="1618906687878" />
+    <state x="401" y="209" width="479" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1619864345230">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="401" y="209" width="479" height="268" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1280.680@0.0.1280.680" timestamp="1619864345230" />
+    <state x="371" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1619863720087">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="371" y="87" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.680@0.0.1280.680" timestamp="1619863720087" />
     <state x="221" y="95" key="AndroidCreateResourceFileDialog" timestamp="1619160992010">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -204,26 +228,26 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="438" y="87" key="AndroidProcessChooserDialog/0.0.1280.680@0.0.1280.680" timestamp="1618987494405" />
-    <state x="421" y="95" key="FileChooserDialogImpl" timestamp="1619159464225">
+    <state x="421" y="95" key="FileChooserDialogImpl" timestamp="1619679147436">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1619159464225" />
-    <state width="1236" height="290" key="GridCell.Tab.0.bottom" timestamp="1619260741598">
+    <state x="421" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1619679147436" />
+    <state width="1236" height="32" key="GridCell.Tab.0.bottom" timestamp="1619863669222">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1236" height="290" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1619260741598" />
-    <state width="1236" height="290" key="GridCell.Tab.0.center" timestamp="1619260741597">
+    <state width="1236" height="32" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1619863669222" />
+    <state width="1236" height="32" key="GridCell.Tab.0.center" timestamp="1619863669222">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1236" height="290" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1619260741597" />
-    <state width="1236" height="290" key="GridCell.Tab.0.left" timestamp="1619260741596">
+    <state width="1236" height="32" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1619863669222" />
+    <state width="1236" height="32" key="GridCell.Tab.0.left" timestamp="1619863669221">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1236" height="290" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1619260741596" />
-    <state width="1236" height="290" key="GridCell.Tab.0.right" timestamp="1619260741597">
+    <state width="1236" height="32" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1619863669221" />
+    <state width="1236" height="32" key="GridCell.Tab.0.right" timestamp="1619863669222">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1236" height="290" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1619260741597" />
+    <state width="1236" height="32" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1619863669222" />
     <state width="1236" height="207" key="GridCell.Tab.1.bottom" timestamp="1619000276351">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -240,10 +264,18 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1236" height="207" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1619000276351" />
-    <state x="233" y="73" key="Vcs.Push.Dialog.v2" timestamp="1619073973485">
+    <state width="498" height="457" key="SwitcherDM" timestamp="1619439613470">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="233" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1619073973485" />
+    <state width="498" height="457" key="SwitcherDM/0.0.1280.680@0.0.1280.680" timestamp="1619439613470" />
+    <state x="233" y="73" key="Vcs.Push.Dialog.v2" timestamp="1619435531984">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="233" y="73" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1619435531984" />
+    <state x="452" y="118" key="chooseDestDirectoryDialog" timestamp="1619865464576">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="452" y="118" key="chooseDestDirectoryDialog/0.0.1280.680@0.0.1280.680" timestamp="1619865464576" />
     <state x="451" y="254" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1619073751653">
       <screen x="0" y="0" width="1280" height="680" />
     </state>

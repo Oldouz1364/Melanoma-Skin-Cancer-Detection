@@ -59,19 +59,24 @@ public class MainActivity extends AppCompatActivity {
 
     public void ImageProcessing (View v){
 
-        Mat img = null;
+        Mat img_1 = null;
 
 
         try {
-            img = Utils.loadResource(getApplicationContext(),R.drawable.a);
-            Imgproc.cvtColor(img, img, Imgproc.COLOR_RGB2BGRA);
+            img_1 = Utils.loadResource(getApplicationContext(),R.drawable.a);
+            Imgproc.cvtColor(img_1, img_1, Imgproc.COLOR_RGB2BGRA);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Mat imggray = new Mat();
+        Mat imggray_1 = new Mat();
         Mat img_thresh = new Mat();
-        Imgproc.cvtColor(img, imggray, Imgproc.COLOR_BGR2GRAY); //cvtColor(Mat src, Mat dst, int code, int dstCn)  Converts an image from one color space to another.
-
+        Imgproc.cvtColor(img_1, imggray_1, Imgproc.COLOR_BGR2GRAY); //cvtColor(Mat src, Mat dst, int code, int dstCn)  Converts an image from one color space to another.
+        Mat img = new Mat();
+        Mat imggray = new Mat();
+        Imgproc.resize(img_1,img,new Size (200,200));
+        Imgproc.resize(imggray_1,imggray,new Size (200,200));
+        Log.d("size", String.valueOf(img.size()));
+        Log.d("sizegray", String.valueOf(imggray.size()));
         //Imgproc.cvtColor(img, img, Imgproc.COLOR_RGB2BGRA);
         //Mat img_result = img.clone();
         //Imgproc.Canny(img, img_result, 80, 90);
@@ -194,8 +199,9 @@ public class MainActivity extends AppCompatActivity {
         Imgproc.findContours(img_erode2, contours,hierarchy,Imgproc.RETR_LIST,Imgproc.CHAIN_APPROX_NONE);
         Imgproc.drawContours(img, contours,-1, color);
         */
-
+        Log.d("size2", String.valueOf(img_erode2.size()));
         Mat masked_img = new Mat(img.size(), CvType.CV_8UC3, new Scalar(255, 255, 255)); // Bcs color image
+        Log.d("size3", String.valueOf(masked_img.size()));
         img.copyTo(masked_img, img_erode2);
 
         /*
@@ -439,10 +445,25 @@ public class MainActivity extends AppCompatActivity {
             double green_std_HSV = std_masked_HSV_image.get(1,0)[0];
             double red_std_HSV = std_masked_HSV_image.get(2,0)[0];
 
+            // Edge density feature
+            Mat canny_img =  new Mat();
+            Imgproc.Canny( masked_gray_img, canny_img, 10, 100, 3 );
+            int sum_canny = 0;
+            byte[] imgData = new byte[(int) (canny_img.total() * canny_img.channels())];
+            for (int i=0;i<=canny_img.rows();i++){
+                for (int j=0;j<=canny_img.cols();j++) {
+                    sum_canny = sum_canny + canny_img.get(i,j,imgData)/255;
+                }
+            }
+           // String sum_canny = canny_img.dump();
+            Log.d("sum_canny", String.valueOf(sum_canny));
+
+            // GLCM features
+
 
             // Display the image
-            Bitmap img_bitmap = Bitmap.createBitmap(masked_gray_img.cols(), masked_gray_img.rows(),Bitmap.Config.ARGB_8888);
-            Utils.matToBitmap(masked_gray_img,img_bitmap);
+            Bitmap img_bitmap = Bitmap.createBitmap(canny_img.cols(), canny_img.rows(),Bitmap.Config.ARGB_8888);
+            Utils.matToBitmap(canny_img,img_bitmap);
 
 
             ImageView imageView = findViewById(R.id.img);
@@ -450,6 +471,7 @@ public class MainActivity extends AppCompatActivity {
 
             TextView textView = findViewById(R.id.Feature);
             textView.setText(str_test);
+
 
 
         }
